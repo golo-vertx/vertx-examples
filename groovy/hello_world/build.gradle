@@ -1,0 +1,21 @@
+apply plugin: 'groovy'
+apply plugin: 'application'
+
+mainClassName = 'hello_world'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile "org.codehaus.groovy:groovy-all:2.4.5"
+	compile "io.vertx:vertx-lang-groovy:3.1.0"
+}
+
+/*
+task runScript (dependsOn: 'classes', type: JavaExec) {
+    main = 'hello_world'
+    classpath = sourceSets.main.runtimeClasspath
+}
+*/
+
