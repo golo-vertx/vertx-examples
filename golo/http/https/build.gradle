@@ -25,3 +25,13 @@ task runServer(type: JavaExec){
 	main = 'https.Server'
 	classpath = sourceSets.main.runtimeClasspath
 }
+
+task runServer2(type: JavaExec){
+	main = 'https.Server2'
+	classpath = sourceSets.main.runtimeClasspath
+}
+
+task runGroovyServer(type: JavaExec){
+	main = 'https.groovy.Server'
+	classpath = sourceSets.main.runtimeClasspath
+}
