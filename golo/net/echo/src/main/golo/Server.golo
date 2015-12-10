@@ -1,4 +1,4 @@
-module net.Client
+module net.Server
 
 import io.vertx.core.streams.Pump
 import io.vertx.core.Vertx
@@ -8,9 +8,7 @@ function main = |args|{
 	vertx : createNetServer() : connectHandler(|sock| {
 		#create a pump
 		Pump.pump(sock, sock) : start()
-		}) : listen(1234)
-	)
-
+	}) : listen(1234)
 	println("Echo server is now listening")
 
 }
