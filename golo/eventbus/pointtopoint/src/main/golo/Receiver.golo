@@ -1,6 +1,7 @@
 module eventbus.pointtopoint.Receiver
 
 import io.vertx.core.Vertx
+import io.vertx.core.VertxOptions
 
 function main = |args|{
 	let vertx = Vertx.vertx()
