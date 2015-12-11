@@ -1,4 +1,4 @@
-module net.Server
+module net.echo.Server
 
 import io.vertx.core.streams.Pump
 import io.vertx.core.Vertx

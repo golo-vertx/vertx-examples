@@ -1,4 +1,4 @@
-module net.Client
+module net.echo.Client
 
 import io.vertx.core.Vertx
 import io.vertx.core.net.NetSocket

@@ -13,15 +13,15 @@ dependencies {
 }
 
 golo {
-    mainModule = 'net.Server'
+    mainModule = 'net.echo.Server'
 }
 
 task runClient(type: JavaExec){
-	main = 'net.Client'
+	main = 'net.echo.Client'
 	classpath = sourceSets.main.runtimeClasspath
 }
 
 task runServer(type: JavaExec){
-	main = 'net.Server'
+	main = 'net.echo.Server'
 	classpath = sourceSets.main.runtimeClasspath
 }
