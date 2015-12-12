@@ -6,7 +6,7 @@ import io.vertx.core.eventbus.EventBus;
 import io.vertx.core.Vertx;
 import io.vertx.core.VertxOptions;
 //import io.vertx.spi.cluster.hazelcast.HazelcastClusterManager;
-import io.vertx.spi.cluster.hazelcast.HazelcastClusterManager;
+//import io.vertx.spi.cluster.hazelcast.HazelcastClusterManager;
 
 /*
  * @author <a href="http://tfox.org">Tim Fox</a>
@@ -33,7 +33,7 @@ public class Sender extends AbstractVerticle {
 
       eb.send("ping-address", "ping!", reply -> {
         if (reply.succeeded()) {
-          System.out.println("Received reply " + reply.result().body());
+          System.out.println("Received reply: " + reply.result().body());
         } else {
           System.out.println("No reply");
         }

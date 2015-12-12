@@ -10,12 +10,12 @@ Vertx.clusteredVertx(options, {res->
     vertx.setPeriodic(1000, { v ->
   		eb.send("ping-address", "ping!", {reply->
     		if (reply.succeeded()) {
-    	  		println("Received reply ${reply.result().body()}")
+    	  		println("Received reply: ${reply.result().body()}")
     		} else {
       			println("No reply")
     		}
   		})
-	})
+  	})
   } else {
     println("Failed: ${res.cause()}")
   }
