@@ -1,22 +1,19 @@
 module eventbus.pubsub.Receiver
 
 import io.vertx.core.Vertx
+import io.vertx.core.VertxOptions
 
 function main = |args|{
-	let vertx = Vertx.vertx()
-	let eb = vertx:eventBus()
-
-	let msgConsumer = eb:consumer("news-feed",|message| -> 
-		println("Received news: " + message:body())
-	)
-	msgConsumer:completionHandler(|res|{
-		if res:succeeded(){
-			println("Handler has receached all nodes.")
-		}else{
-			println("Registration failed.")
-		}
-
+	Vertx.clusteredVertx(VertxOptions(),|res|{
+		if res:succeeded() {
+    		let vertx = res:result()
+    	 	let eb = vertx:eventBus()
+    	 	eb:consumer("news-feed",|message| -> 
+				println("Received news: " + message:body())
+			)
+			println("Ready!")
+  		} else {
+    		println("Failed: " + res:cause())
+  		}
 	})
-	println("Ready!")
-
 }
