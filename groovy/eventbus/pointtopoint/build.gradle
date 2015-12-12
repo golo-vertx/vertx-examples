@@ -1,0 +1,26 @@
+apply plugin: 'groovy'
+apply plugin: 'application'
+
+mainClassName = 'server'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile "org.codehaus.groovy:groovy-all:2.4.5"
+	compile "io.vertx:vertx-lang-groovy:3.1.0"
+	compile "io.vertx:vertx-hazelcast:3.1.0"
+}
+
+task runReceiver(type: JavaExec){
+	main = 'receiver'
+	classpath = sourceSets.main.runtimeClasspath
+}
+
+task runSender(type: JavaExec){
+	main = 'sender'
+	classpath = sourceSets.main.runtimeClasspath
+}
+
+

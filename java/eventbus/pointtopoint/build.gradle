@@ -1,0 +1,26 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+repositories {
+    jcenter()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile "io.vertx:vertx-core:3.1.0"
+    compile "io.vertx:vertx-hazelcast:3.1.0"
+}
+
+mainClassName = 'eventbus.pointtopoint.Sender'
+
+task runReceiver(type: JavaExec){
+	main = 'eventbus.pointtopoint.Receiver'
+	classpath = sourceSets.main.runtimeClasspath
+}
+
+task runSender(type: JavaExec){
+	main = 'eventbus.pointtopoint.Sender'
+	classpath = sourceSets.main.runtimeClasspath
+}
