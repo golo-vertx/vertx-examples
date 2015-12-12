@@ -1,0 +1,22 @@
+plugins{
+	id 'org.golo-lang.golo' version '0.5'
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    //golo 'org.golo-lang:golo:3.0.0-incubation'
+    golo 'org.eclipse.golo:golo:3.0.0-incubation-M2'
+    compile "io.vertx:vertx-lang-groovy:3.1.0"
+}
+
+golo {
+    mainModule = 'http.simpleform.Server'
+}
+
+task runServer(type: JavaExec){
+	main = 'http.simpleform.Server'
+	classpath = sourceSets.main.runtimeClasspath
+}
