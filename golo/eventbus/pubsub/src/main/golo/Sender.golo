@@ -4,7 +4,7 @@ import io.vertx.core.Vertx
 import io.vertx.core.VertxOptions
 
 function main = |args|{
-	Vertx.clusteredVertx(VertxOptions(),|res|{
+	Vertx.clusteredVertx(VertxOptions():setClustered(true),|res|{
 		if res:succeeded() {
     		let vertx = res:result()
     	 	let eb = vertx:eventBus()
